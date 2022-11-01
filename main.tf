@@ -6,12 +6,13 @@ terraform {
       version = "~> 3.0.2"
     }
   }
-  backend "remote" {
-    organization = "ferrets"
-    workspaces {
-      name = "rhoofard-azure-workspace"
-    }
-  }
+  
+  #backend "remote" {
+  #  organization = "ferrets"
+  #  workspaces {
+  #    name = "rhoofard-azure-workspace"
+  #  }
+  #}
 
 }
 provider "azurerm" {
@@ -19,7 +20,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "RyanH-TFResourceGroup"
+  name     = "RyanH-TFResourceGroup2"
   location = "westus2"
 }
 
