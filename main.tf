@@ -20,7 +20,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "RyanH-TFResourceGroup2"
+  name     = "RyanHoo-TFResourceGroup2"
   location = "westus2"
 }
 
