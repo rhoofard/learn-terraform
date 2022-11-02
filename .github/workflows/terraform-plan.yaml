@@ -1,10 +1,10 @@
 name: Terraform Plan
 
 on:
-  push:
+  pull_request:
     branches: [ "main" ]
 jobs:
-  apply:
+  validate:
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -22,7 +22,11 @@ jobs:
         run: |
           terraform init
       
-      - name: Terraform Apply
-        id: apply
+      - name: Terraform Validation
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        id: plan
         run: |
-          terraform apply -auto-approve 
+          terraform plan 
